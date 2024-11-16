@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/ReminderModal.css";
 import CameraView from "./CameraView";
 
-const ReminderModal = ({ isOpen, onClose, reminder }) => {
+const ReminderModal = ({ isOpen, onClose, onVerify }) => {
   const [showCamera, setShowCamera] = useState(false);
 
   if (!isOpen) return null;
@@ -15,6 +15,11 @@ const ReminderModal = ({ isOpen, onClose, reminder }) => {
     return (
       <CameraView
         onClose={() => {
+          setShowCamera(false);
+          onClose();
+        }}
+        onVerify={() => {
+          onVerify();
           setShowCamera(false);
           onClose();
         }}

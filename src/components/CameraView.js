@@ -1,12 +1,19 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "../styles/CameraView.css";
 
-const CameraView = ({ onClose }) => {
+const CameraView = ({ onClose, onVerify }) => {
   const videoRef = useRef(null);
+  const canvasRef = useRef(null);
   const [stream, setStream] = useState(null);
+  const [capturedImage, setCapturedImage] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const startCamera = async () => {
     try {
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
+
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "environment" },
       });
@@ -26,11 +33,63 @@ const CameraView = ({ onClose }) => {
     onClose();
   };
 
-  // Start camera when component mounts
-  useState(() => {
+  const handleCapture = () => {
+    const canvas = document.createElement("canvas");
+    const video = videoRef.current;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(video, 0, 0);
+    const imageDataUrl = canvas.toDataURL("image/jpeg");
+    setCapturedImage(imageDataUrl);
+    setShowConfirmation(true);
+  };
+
+  const handleRetake = () => {
+    setCapturedImage(null);
+    setShowConfirmation(false);
     startCamera();
-    return () => stopCamera();
+  };
+
+  const handleVerify = () => {
+    onVerify();
+    stopCamera();
+  };
+
+  useEffect(() => {
+    startCamera();
+    return () => {
+      if (stream) {
+        stream.getTracks().forEach((track) => track.stop());
+      }
+    };
   }, []);
+
+  if (showConfirmation) {
+    return (
+      <div className="camera-view">
+        <div className="confirmation-view">
+          <div className="confirmation-header">
+            <p>I verify that my 8:00 medication is in this photo</p>
+          </div>
+          <div className="captured-image-container">
+            <img src={capturedImage} alt="Captured medication" />
+            <div className="capture-box"></div>
+          </div>
+          <div className="confirmation-buttons">
+            <button className="retake-button" onClick={handleRetake}>
+              <span>✕</span>
+              <span>RETAKE</span>
+            </button>
+            <button className="verify-button" onClick={handleVerify}>
+              <span>✓</span>
+              <span>VERIFY</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="camera-view">
@@ -54,7 +113,7 @@ const CameraView = ({ onClose }) => {
           <div className="capture-box"></div>
         </div>
 
-        <button className="capture-button" onClick={stopCamera}>
+        <button className="capture-button" onClick={handleCapture}>
           <div className="capture-button-inner"></div>
         </button>
       </div>

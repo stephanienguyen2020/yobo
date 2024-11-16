@@ -64,6 +64,11 @@ const CheckInSection = ({ checks, onCheckClick, onRemindClick }) => {
     }, 3000);
   };
 
+  const handleVerification = () => {
+    // Mark the first medication as taken for "You"
+    onCheckClick("You", 0);
+  };
+
   return (
     <div className="check-in-section">
       <div className="header">
@@ -165,6 +170,7 @@ const CheckInSection = ({ checks, onCheckClick, onRemindClick }) => {
           isOpen={showReminderModal}
           onClose={() => setShowReminderModal(false)}
           user={selectedUser}
+          onVerify={handleVerification}
         />
       )}
 
