@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../styles/WeeklyAchievement.css";
+import "../../styles/peerSupport/WeeklyAchievement.css";
 
 const WeeklyAchievement = () => {
   const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];

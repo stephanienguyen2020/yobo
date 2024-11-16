@@ -1,4 +1,4 @@
-import "../styles/TodayProgress.css";
+import "../../styles/peerSupport/TodayProgress.css";
 
 const TodayProgress = ({ checks }) => {
   const calculateProgress = (userName) => {

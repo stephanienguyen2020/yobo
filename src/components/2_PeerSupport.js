@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "../styles/2_PeerSupport.css";
-import TodayProgress from "./TodayProgress";
-import CheckInSection from "./CheckInSection";
-import WeeklyAchievement from "./WeeklyAchievement";
+import WeeklyAchievement from "./peerSupport/WeeklyAchievement";
+import TodayProgress from "./peerSupport/TodayProgress";
+import ReminderModal from "./peerSupport/ReminderModal";
+import CheckInSection from "./peerSupport/CheckInSection";
 
 const PeerSupport = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

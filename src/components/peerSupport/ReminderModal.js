@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/ReminderModal.css";
+import "../../styles/peerSupport/ReminderModal.css";
 import CameraView from "./CameraView";
 
 const ReminderModal = ({ isOpen, onClose, onVerify }) => {

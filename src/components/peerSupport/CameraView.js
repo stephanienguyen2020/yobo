@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import "../styles/CameraView.css";
+import "../../styles/peerSupport/CameraView.css";
 
 const CameraView = ({ onClose, onVerify }) => {
   const videoRef = useRef(null);

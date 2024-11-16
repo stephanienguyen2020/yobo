@@ -1,8 +1,8 @@
 .achievement-card {
   background: linear-gradient(
     to right,
-    #a0bdf3 0%,
-    #c0d6ff var(--progress-percentage),
+    #aacdff 0%,
+    #a1faff var(--progress-percentage),
     #ffffff var(--progress-percentage),
     #ffffff 100%
   );
@@ -36,7 +36,7 @@
 
 .percentage {
   margin-top: 12px;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bold;
   min-width: 60px;
 }

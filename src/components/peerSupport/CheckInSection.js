@@ -1,4 +1,4 @@
-import "../styles/CheckInSection.css";
+import "../../styles/peerSupport/CheckInSection.css";
 import { useState, useEffect } from "react";
 import ReminderModal from "./ReminderModal";
 
