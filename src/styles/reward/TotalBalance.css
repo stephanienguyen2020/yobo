@@ -1,0 +1,40 @@
+.reward-card {
+  background: #2962ff;
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.reward-card h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.points-display {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.points {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.pts {
+  font-size: 18px;
+}
+
+.redeem-button {
+  background: white;
+  color: #2962ff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}

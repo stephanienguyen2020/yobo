@@ -1,0 +1,40 @@
+.reward-card {
+  background: #2962ff;
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.reward-card h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.points-display {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.progress-container {
+  background: rgba(255, 255, 255, 0.3);
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  background: white;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 14px;
+  text-align: center;
+}
