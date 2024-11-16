@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import PeerSupport from "./components/PeerSupport";
+import PeerSupport from "./components/2_PeerSupport";
 import Navigation from "./components/Navigation";
 
 function App() {

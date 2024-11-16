@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/PeerSupport.css";
+import "../styles/2_PeerSupport.css";
 import ReminderModal from "./ReminderModal";
 import TodayProgress from "./TodayProgress";
 import CheckInSection from "./CheckInSection";
