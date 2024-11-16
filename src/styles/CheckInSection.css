@@ -1,0 +1,72 @@
+.check-in-container {
+  background: white;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.clock-icon {
+  margin-right: 10px;
+}
+
+.header-text {
+  margin: 0;
+  color: #333;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.like-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.like-number {
+  color: #ff69b4;
+  font-weight: bold;
+}
+
+.remind-button {
+  background: #e8f0fe;
+  color: #4a90e2;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ranking-section {
+  display: flex;
+  gap: 10px;
+}
+
+.heart-icon {
+  color: #666;
+  font-size: 20px;
+}

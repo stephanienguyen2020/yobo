@@ -1,0 +1,387 @@
+/* Main container styles
+-------------------------------------------------- */
+.peer-support {
+  padding-bottom: 70px; /* Space for fixed navigation */
+}
+
+/* Check-in Section Layout
+-------------------------------------------------- */
+.check-in-section {
+  background: white;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* User List and Row Styles */
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left Section with Avatar and User Info */
+.left-section {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.user-display-name {
+  font-size: 13px;
+  color: #333;
+}
+
+/* Like Counter Styles */
+.like-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #666;
+}
+
+.like-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  font-size: 13px;
+  color: #666;
+  margin-left: 15px;
+}
+
+.like-heart {
+  width: 24px;
+  height: 24px;
+  background: #ff69b4;
+  clip-path: path(
+    "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.like-number {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Remind Button Styles */
+.remind-button {
+  background: #e8f0fe;
+  color: #4a90e2;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Heart Rating Section */
+.ranking-section {
+  display: flex;
+  gap: 10px;
+  align-self: flex-start;
+  padding-top: 2px;
+}
+
+.heart-icon {
+  color: #666;
+  font-size: 20px;
+}
+
+.heart-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 50px;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.heart-button.liked {
+  color: #ff69b4;
+}
+
+.heart-button:hover {
+  color: #ff69b4;
+}
+
+.heart-button:focus {
+  outline: none;
+}
+
+/* Progress Section Styles
+-------------------------------------------------- */
+.progress-section {
+  background: #4a90e2;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+/* User Progress Display */
+.user-progress-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.user-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name {
+  font-size: 20px;
+  color: white;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  background: #ddd;
+  margin-bottom: 4px;
+}
+
+.progress-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Weekly Achievement Section
+-------------------------------------------------- */
+.weekly-section {
+  background: #f0f0f0;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* Weekly Header Layout */
+.weekly-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.percentage {
+  font-size: 80px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Days Container Layout */
+.weekly-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.days-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Day Indicator Styles */
+.day-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Interactive Day Dot Styles */
+.day-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.day-dot.completed {
+  border-color: #4a90e2;
+  background-color: #4a90e2;
+  transform: scale(1.1);
+}
+
+.day-dot:hover {
+  border-color: #4a90e2;
+}
+
+.day-dot:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+}
+
+.day-label {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Weekly Achievement Title */
+.title {
+  color: #666;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+/* Check-in Header Styles
+-------------------------------------------------- */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.clock-icon {
+  margin-right: 10px;
+}
+
+.header-text {
+  margin: 0;
+  color: #333;
+}
+
+.checkin-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkin-header {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 0 7px;
+}
+
+.left-space {
+  width: 200px; /* Adjust to match the width of user profile + like/remind section */
+}
+
+.checkin-columns {
+  display: flex;
+  margin-left: 17px;
+}
+
+.time-slot {
+  width: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-right: 40px;
+}
+
+.time-slot:last-child {
+  margin-right: 0;
+}
+
+.checkin-status {
+  display: flex;
+  gap: 40px; /* Keep this the same as time-slot margin-right */
+  margin-right: 7px; /* Match margin-left of checkin-columns */
+}
+
+.status-indicator.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #a8a8a8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #a8a8a8;
+  color: white;
+  font-size: 14px;
+  padding: 0;
+}
+
+/* For You's circles */
+.status-indicator.circle.you.checked {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+/* For Aya and Lisa's circles */
+.status-indicator.circle.other.checked {
+  background: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.checkin-column {
+  display: flex;
+  gap: 40px;
+  margin-left: 15px;
+}
+
+.checkin-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.like-heart-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 25px;
+  color: #ddd;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.like-heart-button.active {
+  color: #ff69b4;
+}
+
+.like-heart-button:hover {
+  color: #ff69b4;
+}

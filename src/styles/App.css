@@ -1,0 +1,13 @@
+.app-container {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f5f5f5;
+  position: relative;
+}
+
+.status-bar {
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+}
