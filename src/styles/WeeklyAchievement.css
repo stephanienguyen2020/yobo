@@ -1,27 +1,62 @@
 .achievement-card {
-  background: white;
+  background: linear-gradient(
+    to right,
+    #a0bdf3 0%,
+    #c0d6ff var(--progress-percentage),
+    #ffffff var(--progress-percentage),
+    #ffffff 100%
+  );
   margin: 15px;
   padding: 20px;
   border-radius: 15px;
 }
 
-.percentage {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
+.weekly-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  position: relative;
 }
 
-.week-days {
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%; /* Will be overridden by inline style */
+  background-color: #3478f6;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.weekly-header > div {
+  position: relative;
+  z-index: 2;
+}
+
+.percentage {
+  margin-top: 12px;
+  font-size: 50px;
+  font-weight: bold;
+  min-width: 60px;
+}
+
+.weekly-right {
+  flex: 1;
+}
+
+.days-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 1px;
 }
 
 .day-indicator {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 }
 
 .day-dot {
@@ -29,6 +64,19 @@
   height: 12px;
   border-radius: 50%;
   border: 2px solid #ddd;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.day-dot.completed {
+  background: #4a90e2;
+  border-color: #4a90e2;
+}
+
+.day-dot.current {
+  border-color: #4a90e2;
 }
 
 .day-label {
@@ -36,8 +84,12 @@
   color: #666;
 }
 
+.day-indicator.current .day-label {
+  color: #3478f6;
+}
+
 .title {
-  color: #666;
-  font-size: 14px;
-  margin-top: 10px;
+  color: #232323;
+  font-size: 20px;
+  margin-top: 4px;
 }

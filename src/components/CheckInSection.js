@@ -1,9 +1,10 @@
 import "../styles/CheckInSection.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ReminderModal from "./ReminderModal";
 
 const CheckInSection = ({ checks, onCheckClick, onRemindClick }) => {
   const users = [
-    { name: "You", displayName: "You", likes: 0 },
+    { name: "You", displayName: "You", likes: 1 },
     { name: "Aya", displayName: "Aya", remind: true },
     { name: "Lisa", displayName: "Lisa", remind: true },
   ];
@@ -14,13 +15,53 @@ const CheckInSection = ({ checks, onCheckClick, onRemindClick }) => {
     Lisa: [false, false, false],
   });
 
+  const [showLikePopup, setShowLikePopup] = useState(false);
+  const [likePoints, setLikePoints] = useState(0);
+  const [showReminderModal, setShowReminderModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [remindedUsers, setRemindedUsers] = useState({
+    Aya: false,
+    Lisa: false,
+  });
+  const [showRemindPopup, setShowRemindPopup] = useState(false);
+
+  // Check if first medication is taken
+  useEffect(() => {
+    const isFirstCheckMissing = !checks["You"][0];
+    if (isFirstCheckMissing) {
+      setShowReminderModal(true);
+      setSelectedUser("You");
+    }
+  }, [checks]);
+
   const handleHeartClick = (userName, position) => {
     setLikes((prevLikes) => {
       const newLikes = { ...prevLikes };
       newLikes[userName] = [...prevLikes[userName]];
       newLikes[userName][position] = !newLikes[userName][position];
+
+      if (newLikes[userName][position]) {
+        setLikePoints((prev) => prev + 50);
+        setShowLikePopup(true);
+        setTimeout(() => {
+          setShowLikePopup(false);
+        }, 3000);
+      }
+
       return newLikes;
     });
+  };
+
+  const handleRemindClick = (user) => {
+    setSelectedUser(user);
+    setRemindedUsers((prev) => ({
+      ...prev,
+      [user.name]: true,
+    }));
+    setShowRemindPopup(true);
+    setTimeout(() => {
+      setShowRemindPopup(false);
+    }, 3000);
   };
 
   return (
@@ -58,8 +99,11 @@ const CheckInSection = ({ checks, onCheckClick, onRemindClick }) => {
                   </div>
                 ) : (
                   <button
-                    className="remind-button"
-                    onClick={() => onRemindClick(user)}
+                    className={`remind-button ${
+                      remindedUsers[user.name] ? "reminded" : ""
+                    }`}
+                    onClick={() => handleRemindClick(user)}
+                    disabled={remindedUsers[user.name]}
                   >
                     Remind
                   </button>
@@ -96,6 +140,52 @@ const CheckInSection = ({ checks, onCheckClick, onRemindClick }) => {
           ))}
         </div>
       </div>
+
+      {showLikePopup && (
+        <div className="popup-overlay">
+          <div className="like-popup">
+            <button
+              className="close-button"
+              onClick={() => setShowLikePopup(false)}
+            >
+              ✕
+            </button>
+            <div className="popup-content">
+              <h2>50</h2>
+              <p>"Likes" points!</p>
+              <div className="popup-icon">🎉</div>
+              <p>Thanks for supporting your team!</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showReminderModal && (
+        <ReminderModal
+          isOpen={showReminderModal}
+          onClose={() => setShowReminderModal(false)}
+          user={selectedUser}
+        />
+      )}
+
+      {showRemindPopup && (
+        <div className="popup-overlay">
+          <div className="like-popup">
+            <button
+              className="close-button"
+              onClick={() => setShowRemindPopup(false)}
+            >
+              ✕
+            </button>
+            <div className="popup-content">
+              <h2>50</h2>
+              <p>"Remind" points!</p>
+              <div className="popup-icon">🎉</div>
+              <p>Thanks for supporting your team!</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

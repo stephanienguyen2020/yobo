@@ -25,6 +25,9 @@ const ReminderModal = ({ isOpen, onClose, reminder }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
+        <button className="close-button" onClick={onClose}>
+          ✕
+        </button>
         <div className="reminder-header">
           <div className="user-avatar"></div>
           <span className="reminder-title">Remind from Aya</span>

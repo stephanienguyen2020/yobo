@@ -38,17 +38,33 @@
   gap: 15px;
 }
 
-.like-count {
+.like-container {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 14px;
-  color: #666;
+}
+
+.like-heart {
+  width: 24px;
+  height: 24px;
+  background: #ff69b4;
+  clip-path: path(
+    "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .like-number {
-  color: #ff69b4;
+  color: white;
+  font-size: 12px;
   font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .remind-button {
@@ -59,6 +75,17 @@
   border-radius: 15px;
   font-size: 14px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remind-button.reminded {
+  background: #cccccc;
+  color: white;
+  cursor: not-allowed;
+}
+
+.remind-button:disabled {
+  cursor: not-allowed;
 }
 
 .ranking-section {
@@ -69,4 +96,73 @@
 .heart-icon {
   color: #666;
   font-size: 20px;
+}
+
+.check-in-section .like-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-align: center;
+  width: 80%;
+  max-width: 320px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.check-in-section .popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-in-section .popup-content h2 {
+  color: #4169e1;
+  font-size: 24px;
+  margin: 0;
+}
+
+.check-in-section .popup-icon {
+  font-size: 48px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: #f0f0f0;
 }
