@@ -1,0 +1,78 @@
+.calendar-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.nav-arrow {
+  border: none;
+  background: none;
+  font-size: 20px;
+  color: #4a90e2;
+  cursor: pointer;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+}
+
+.days-container {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 10px;
+}
+
+.day-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.day-item:hover {
+  background: #f5f5f5;
+}
+
+.day-item.active {
+  color: #4a90e2;
+}
+
+.day-item.today .date-number {
+  background: #4a90e2;
+  color: white;
+}
+
+.day-item.active .date-number {
+  background: #4a90e2;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-name {
+  font-size: 12px;
+  color: #666;
+}
+
+.date-number {
+  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

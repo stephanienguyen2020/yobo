@@ -1,0 +1,55 @@
+.medications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.medication-item {
+  display: flex;
+  gap: 15px;
+}
+
+.time-indicator {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 14px;
+  width: 50px;
+}
+
+.medication-card {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.medication-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.medication-name {
+  font-weight: 500;
+}
+
+.pill-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.check-in-button {
+  background: #e8f0fe;
+  color: #4a90e2;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
